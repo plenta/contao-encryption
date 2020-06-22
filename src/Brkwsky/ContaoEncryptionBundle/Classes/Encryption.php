@@ -15,8 +15,7 @@ namespace Brkwsky\ContaoEncryptionBundle\Classes;
 use phpseclib\Crypt\Blowfish;
 
 /**
- * Class Encryption
- * @package Brkwsky\ContaoEncryptionBundle\Classes
+ * Class Encryption.
  */
 class Encryption
 {
