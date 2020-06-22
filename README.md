@@ -17,10 +17,10 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
         'feGroup' => 'bank'
     ],
     'load_callback' => [
-        ['brkwsky.jobs.helper.encryption', 'decrypt']
+        ['brkwsky.encryption', 'decrypt']
     ],
     'save_callback' => [
-        ['brkwsky.jobs.helper.encryption', 'encrypt']
+        ['brkwsky.encryption', 'encrypt']
     ],
     'sql'               => "varchar(32) NOT NULL default ''"
 ];
