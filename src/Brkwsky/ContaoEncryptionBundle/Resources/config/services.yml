@@ -1,0 +1,4 @@
+brkwsky.encryption:
+    public: true
+    class: Brkwsky\ContaoEncryptionBundle\Classes\Encryption
+    arguments: ["%secret%"]
