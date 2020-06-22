@@ -1,3 +1,5 @@
+![](https://github.com/Brkwsky/contao-encryption/workflows/PHP%20Unit%20and%20Security%20Check/badge.svg)
+
 # Contao Encryption
 
 A replacement service for the removed Contao encryption class.
