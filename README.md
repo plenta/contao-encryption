@@ -1,7 +1,8 @@
 # Contao Encryption
 
-An alternative service for the lost Contao Encryption class.
+A replacement service for the removed Contao encryption class.
 
+## DCA Example
 ```php
 // tl_member
 $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
