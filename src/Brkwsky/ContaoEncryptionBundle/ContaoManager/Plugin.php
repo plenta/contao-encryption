@@ -33,14 +33,4 @@ class Plugin implements BundlePluginInterface
                 ]),
         ];
     }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @throws \Exception
-     */
-    public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void
-    {
-        //$loader->load('@PlentaSuiteCRMBudnle/Resources/config/config.yml');
-    }
 }
