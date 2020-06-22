@@ -2,7 +2,7 @@
 
 # Contao Encryption
 
-A replacement service for the removed Contao encryption class.
+A replacement service for the deprecated Contao encryption class (Contao\Encryption).
 
 ## Install using Contao Manager
 
