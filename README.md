@@ -2,7 +2,17 @@
 
 A replacement service for the removed Contao encryption class.
 
-## DCA Example
+## Install using Contao Manager
+
+Search for **encryption** and you will find this extension.
+
+## Install using Composer
+
+```bash
+composer require brkwsky/contao-encryption
+```
+
+## Example > DCA
 ```php
 // tl_member
 $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
