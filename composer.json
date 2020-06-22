@@ -21,6 +21,11 @@
       "Brkwsky\\ContaoEncryptionBundle\\": "src/Brkwsky/ContaoEncryptionBundle"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Brkwsky\\ContaoEncryptionBundle\\Tests\\": "tests/"
+    }
+  },
   "extra": {
     "contao-manager-plugin": "Brkwsky\\ContaoEncryptionBundle\\ContaoManager\\Plugin"
   }
