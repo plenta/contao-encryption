@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\ContaoEncryptionBundle;
+namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit;
 
 use Brkwsky\ContaoEncryptionBundle\ContaoEncryptionBundle;
 use PHPUnit\Framework\TestCase;
