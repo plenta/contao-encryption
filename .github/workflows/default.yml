@@ -1,0 +1,37 @@
+name: PHP Unit and Security Check
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: '7.4'
+                extensions: mysqli, pdo_mysql, pcntl, bcmath, zip, soap, intl, gd, exif, xdebug
+                ini-values: short_open_tag=off
+                coverage: xdebug
+
+            - name: Validate composer.json
+              run: composer validate --no-check-lock
+
+            - name: Install dependencies
+              run: composer update --prefer-dist --no-progress --no-suggest
+
+            - name: Security Check
+              run: vendor/bin/security-checker security:check composer.lock
+
+            - name: PHPUnit
+              run: vendor/bin/phpunit --configuration phpunit.xml.dist --testsuite unit
+              env:
+                SYMFONY_DEPRECATIONS_HELPER: disabled
