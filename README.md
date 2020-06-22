@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
 
 ```php
 $encryptionService = \Contao\System::getContainer()->get('brkwsky.encryption');
-$urlParamter = $encryptionService->encryptUrlSafe('value');
+$urlParameter = $encryptionService->encryptUrlSafe('value');
 
 $urlGetParameter = \Contao\Input::get('parameter');
 $encryptionService->decryptUrlSafe($urlGetParameter);
