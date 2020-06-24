@@ -3,6 +3,20 @@
   "description": "A replacement service for the removed Contao encryption class.",
   "type": "contao-bundle",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Barkowsky",
+      "email": "hallo@brkwsky.de",
+      "homepage": "https://brkwsky.de",
+      "role": "Developer"
+    },
+    {
+      "name": "Christoph Werner",
+      "email": "hallo@brkwsky.de",
+      "homepage": "https://brkwsky.de",
+      "role": "Developer"
+    }
+  ],
   "require": {
     "php": "^7.2",
     "contao/manager-bundle": "^4.4",
