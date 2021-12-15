@@ -27,8 +27,7 @@
     "contao/test-case": "^4.0.0",
     "squizlabs/php_codesniffer": "^3.5.4",
     "friendsofphp/php-cs-fixer": "^2.12",
-    "symfony/phpunit-bridge": "^4",
-    "sensiolabs/security-checker": "^6.0.2"
+    "symfony/phpunit-bridge": "^4"
   },
   "autoload": {
     "psr-4": {
