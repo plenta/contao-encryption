@@ -19,14 +19,14 @@ use phpseclib\Crypt\Blowfish;
  */
 class Encryption
 {
-    private ?string $publicKey;
+    private ?string $encryptionKey;
 
     /**
      * Encryption constructor.
      */
     public function __construct(string $secret)
     {
-        $this->publicKey = $secret;
+        $this->encryptionKey = $secret;
     }
 
     /**
@@ -37,7 +37,7 @@ class Encryption
     public function encrypt($value)
     {
         $cipher = new Blowfish();
-        $cipher->setKey($this->publicKey);
+        $cipher->setKey($this->encryptionKey);
         $value = $cipher->encrypt($value);
 
         return base64_encode($value);
@@ -55,7 +55,7 @@ class Encryption
         }
 
         $cipher = new Blowfish();
-        $cipher->setKey($this->publicKey);
+        $cipher->setKey($this->encryptionKey);
         $value = base64_decode($value, true);
 
         return $cipher->decrypt($value);
@@ -64,7 +64,7 @@ class Encryption
     public function encryptUrlSafe($value): string
     {
         $cipher = new Blowfish();
-        $cipher->setKey($this->publicKey);
+        $cipher->setKey($this->encryptionKey);
         $value = $cipher->encrypt($value);
         $valueBase64 = base64_encode($value);
 
@@ -79,7 +79,7 @@ class Encryption
     public function decryptUrlSafe($value)
     {
         $cipher = new Blowfish();
-        $cipher->setKey($this->publicKey);
+        $cipher->setKey($this->encryptionKey);
         $value = base64_decode(strtr($value, '-_', '+/').str_repeat('=', 3 - (3 + \strlen($value)) % 4), true);
 
         return $cipher->decrypt($value);

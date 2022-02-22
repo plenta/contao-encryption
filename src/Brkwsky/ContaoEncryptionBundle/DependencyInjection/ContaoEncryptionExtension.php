@@ -22,7 +22,7 @@ class ContaoEncryptionExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $mergedConfig, ContainerBuilder $container): void
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
             $container,
@@ -30,5 +30,9 @@ class ContaoEncryptionExtension extends Extension
         );
 
         $loader->load('services.yml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+        $container->setParameter('plenta_encryption.encryption_key', $config['encryption_key']);
     }
 }
