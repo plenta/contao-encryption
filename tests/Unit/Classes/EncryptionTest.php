@@ -49,11 +49,20 @@ class EncryptionTest extends ContaoTestCase
         $this->assertSame($this->decryptedValue, $this->objEncryption->decrypt($this->encryptedValue));
     }
 
+    public function testEncryptEmptyString(): void
+    {
+        $encrypted = $this->objEncryption->encrypt('');
+        $decrypted = $this->objEncryption->decrypt($encrypted);
+        $this->assertSame('', $decrypted);
+
+        $this->assertSame('', $this->objEncryption->decrypt(''));
+    }
+
     public function testEncryptionUrlSafeCycle(): void
     {
-        $decrypted = $this->objEncryption->encryptUrlSafe($this->decryptedValue);
-        $encrypted = $this->objEncryption->decryptUrlSafe($decrypted);
+        $encrypted = $this->objEncryption->encryptUrlSafe($this->decryptedValue);
+        $decrypted = $this->objEncryption->decryptUrlSafe($encrypted);
 
-        $this->assertSame($encrypted, $this->decryptedValue);
+        $this->assertSame($decrypted, $this->decryptedValue);
     }
 }
