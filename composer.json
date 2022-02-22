@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.2 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "contao/core-bundle": "^4.4",
         "phpseclib/phpseclib": "^2.0.27"
     },
@@ -27,8 +27,8 @@
         "phpunit/phpunit": "^8.5.2",
         "contao/test-case": "^4.0.0",
         "squizlabs/php_codesniffer": "^3.5.4",
-        "friendsofphp/php-cs-fixer": "^2.12",
-        "symfony/phpunit-bridge": "^4"
+        "symfony/phpunit-bridge": "^4",
+        "friendsofphp/php-cs-fixer": "^v3.4.0"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
@@ -45,5 +45,11 @@
     },
     "extra": {
         "contao-manager-plugin": "Brkwsky\\ContaoEncryptionBundle\\ContaoManager\\Plugin"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true
+        }
     }
 }

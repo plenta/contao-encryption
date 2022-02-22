@@ -16,13 +16,20 @@ $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__.'/src'])
 ;
 
-return PhpCsFixer\Config::create()
-    ->setRules([
+$config = new PhpCsFixer\Config();
+
+return $config->setRules(
+    [
         '@Symfony' => true,
         '@Symfony:risky' => true,
         '@PHP71Migration' => true,
         '@PHP71Migration:risky' => true,
+        '@PHP73Migration' => true,
+        '@PHP74Migration' => true,
+        '@PHP74Migration:risky' => true,
         '@PHPUnit60Migration:risky' => true,
+        '@PHPUnit75Migration:risky' => true,
+        '@PHPUnit84Migration:risky' => true,
         'align_multiline_comment' => true,
         'array_indentation' => true,
         'array_syntax' => ['syntax' => 'short'],
@@ -31,9 +38,11 @@ return PhpCsFixer\Config::create()
         'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => true,
         'general_phpdoc_annotation_remove' => [
-            'author',
-            'expectedException',
-            'expectedExceptionMessage',
+            'annotations' => [
+                'author',
+                'expectedException',
+                'expectedExceptionMessage',
+            ],
         ],
         'fully_qualified_strict_types' => true,
         'header_comment' => ['header' => $header, 'comment_type' => 'PHPDoc'],
@@ -42,6 +51,7 @@ return PhpCsFixer\Config::create()
         'list_syntax' => ['syntax' => 'short'],
         'no_null_property_initialization' => true,
         'no_superfluous_elseif' => true,
+        'no_superfluous_phpdoc_tags' => false,
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
@@ -57,9 +67,8 @@ return PhpCsFixer\Config::create()
         'strict_comparison' => false,
         'strict_param' => true,
         'void_return' => true,
-        // Remove when https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/3222 has been merged
-        //'LeoFeyer/optimize_native_functions' => true,
-    ])
+    ]
+)
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setUsingCache(false)
