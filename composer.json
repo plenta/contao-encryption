@@ -1,49 +1,49 @@
 {
-  "name": "brkwsky/contao-encryption",
-  "description": "A replacement service for the removed Contao encryption class.",
-  "type": "contao-bundle",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Christian Barkowsky",
-      "email": "hallo@brkwsky.de",
-      "homepage": "https://brkwsky.de",
-      "role": "Developer"
+    "name": "brkwsky/contao-encryption",
+    "description": "A replacement service for the removed Contao encryption class.",
+    "type": "contao-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Barkowsky",
+            "email": "hallo@brkwsky.de",
+            "homepage": "https://brkwsky.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Christoph Werner",
+            "email": "hallo@brkwsky.de",
+            "homepage": "https://brkwsky.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "contao/core-bundle": "^4.4",
+        "phpseclib/phpseclib": "^2.0.27"
     },
-    {
-      "name": "Christoph Werner",
-      "email": "hallo@brkwsky.de",
-      "homepage": "https://brkwsky.de",
-      "role": "Developer"
+    "require-dev": {
+        "contao/manager-bundle": "^4.4",
+        "phpunit/phpunit": "^8.5.2",
+        "contao/test-case": "^4.0.0",
+        "squizlabs/php_codesniffer": "^3.5.4",
+        "friendsofphp/php-cs-fixer": "^2.12",
+        "symfony/phpunit-bridge": "^4"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brkwsky\\ContaoEncryptionBundle\\": "src/Brkwsky/ContaoEncryptionBundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Brkwsky\\ContaoEncryptionBundle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "Brkwsky\\ContaoEncryptionBundle\\ContaoManager\\Plugin"
     }
-  ],
-  "require": {
-    "php": "^7.2 || ^8.0",
-    "contao/core-bundle": "^4.4",
-    "phpseclib/phpseclib": "^2.0.27"
-  },
-  "require-dev": {
-    "contao/manager-bundle": "^4.4",
-    "phpunit/phpunit": "^8.5.2",
-    "contao/test-case": "^4.0.0",
-    "squizlabs/php_codesniffer": "^3.5.4",
-    "friendsofphp/php-cs-fixer": "^2.12",
-    "symfony/phpunit-bridge": "^4"
-  },
-  "conflict": {
-    "contao/manager-plugin": "<2.0 || >=3.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Brkwsky\\ContaoEncryptionBundle\\": "src/Brkwsky/ContaoEncryptionBundle"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Brkwsky\\ContaoEncryptionBundle\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "contao-manager-plugin": "Brkwsky\\ContaoEncryptionBundle\\ContaoManager\\Plugin"
-  }
 }
