@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Encryption extension for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2020, Christian Barkowsky & Christoph Werner
+ * @copyright     Copyright (c) 2022, Christian Barkowsky & Christoph Werner
  * @author        Christian Barkowsky <https://brkwsky.de/>
  * @author        Christoph Werner <https://brkwsky.de/>
  */
@@ -19,10 +19,7 @@ use phpseclib\Crypt\Blowfish;
  */
 class Encryption
 {
-    /**
-     * @var string|null
-     */
-    private $publicKey;
+    private ?string $publicKey;
 
     /**
      * Encryption constructor.
@@ -64,12 +61,7 @@ class Encryption
         return $cipher->decrypt($value);
     }
 
-    /**
-     * @param $value
-     *
-     * @return string|string[]
-     */
-    public function encryptUrlSafe($value)
+    public function encryptUrlSafe($value): string
     {
         $cipher = new Blowfish();
         $cipher->setKey($this->publicKey);

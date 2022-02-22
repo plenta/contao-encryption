@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Encryption extension for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2020, Christian Barkowsky & Christoph Werner
+ * @copyright     Copyright (c) 2022, Christian Barkowsky & Christoph Werner
  * @author        Christian Barkowsky <https://brkwsky.de/>
  * @author        Christoph Werner <https://brkwsky.de/>
  */
@@ -20,10 +20,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class ContaoEncryptionExtensionTest extends TestCase
 {
-    /**
-     * @var ContainerBuilder
-     */
-    private $container;
+    private ContainerBuilder $container;
 
     /**
      * {@inheritdoc}

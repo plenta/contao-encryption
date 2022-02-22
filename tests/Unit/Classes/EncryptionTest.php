@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Encryption extension for Contao Open Source CMS
  *
- * @copyright     Copyright (c) 2020, Christian Barkowsky & Christoph Werner
+ * @copyright     Copyright (c) 2022, Christian Barkowsky & Christoph Werner
  * @author        Christian Barkowsky <https://brkwsky.de/>
  * @author        Christoph Werner <https://brkwsky.de/>
  */
@@ -17,22 +17,11 @@ use Contao\TestCase\ContaoTestCase;
 
 class EncryptionTest extends ContaoTestCase
 {
-    /**
-     * @var Encryption|null
-     */
-    private $objEncryption;
+    private ?Encryption $objEncryption;
+    private string $encryptedValue = 'WlN8cEIMF6cQ3h6w1m59K3EBG+IIsf+H';
+    private string $decryptedValue = 'Max Mustermann 51';
 
-    /**
-     * @var string
-     */
-    private $encryptedValue = 'WlN8cEIMF6cQ3h6w1m59K3EBG+IIsf+H';
-
-    /**
-     * @var string
-     */
-    private $decryptedValue = 'Max Mustermann 51';
-
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->objEncryption = new Encryption('a08cbe3e62053d9141c5bef71096de4fd71722f8e294bdb1fb428dd81f1d3657');
 
