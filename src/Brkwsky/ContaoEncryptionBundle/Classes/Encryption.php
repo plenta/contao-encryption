@@ -53,6 +53,10 @@ class Encryption
      */
     public function decrypt($value)
     {
+        if ('' === $value) {
+            return '';
+        }
+
         $cipher = new Blowfish();
         $cipher->setKey($this->publicKey);
         $value = base64_decode($value, true);
