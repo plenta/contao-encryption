@@ -2,7 +2,8 @@
 
 # Contao Encryption
 
-A replacement service for the deprecated Contao encryption class (Contao\Encryption).
+A replacement service for the deprecated Contao encryption class (Contao\Encryption).  
+Please set an encryption key before using the dca callbacks or encryption services.
 
 ## Install using Contao Manager
 
@@ -11,7 +12,39 @@ Search for **encryption** and you will find this extension.
 ## Install using Composer
 
 ```bash
-composer require brkwsky/contao-encryption
+composer require plenta/contao-encryption
+```
+
+## Encryption Key
+**Please read this thoroughly otherwise you might lose all your encrypted data!**
+
+This extension uses the standard encryption key `%kernel.secret%` as default. Symfony recommends changing the `%kernel.secret%` periodically. Therefore, it is highly recommended setting a dedicated encryption key for this extension.
+
+### How to set a dedicated encryption key
+The config parameter is called `encryption_key` and it lives under the namespace `plenta_conta_encryption`.
+Its value should be a series of characters, numbers and symbols chosen randomly and the recommended length is around 32 characters.
+
+Keep a backup of your encryption key. If you lose it you can not recover your data.  
+If you want to change the encryption key, you have to decrypt all your encrypted data with the old encryption key and then encrypt it with the new one.
+
+```yaml
+# config/parameters.yaml or config/services.yaml
+
+plenta_contao_encryption:
+    encryption_key: 'CharactersNumbersSymbolsAround32CharactersLong'
+```
+
+You can also use environment variables.
+```yaml
+# config/parameters.yaml or config/services.yaml
+
+plenta_contao_encryption:
+    encryption_key: '%env(PLENTA_CONTAO_ENCRYPTION_KEY)%'
+```
+
+```dotenv
+# .env or .env.local
+PLENTA_CONTAO_ENCRYPTION_KEY="CharactersNumbersSymbolsAround32CharactersLong"
 ```
 
 ## Example > DCA
