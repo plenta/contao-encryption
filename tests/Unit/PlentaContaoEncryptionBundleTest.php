@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit;
+namespace Plenta\ContaoEncryptionBundle\Tests\Unit;
 
-use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
+use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use PHPUnit\Framework\TestCase;
 
 class PlentaContaoEncryptionBundleTest extends TestCase
@@ -20,6 +20,6 @@ class PlentaContaoEncryptionBundleTest extends TestCase
     public function testCanBeInstantiated(): void
     {
         $bundle = new PlentaContaoEncryptionBundle();
-        $this->assertInstanceOf('Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle', $bundle);
+        $this->assertInstanceOf('Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle', $bundle);
     }
 }

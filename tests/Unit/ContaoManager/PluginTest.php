@@ -10,10 +10,10 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\ContaoManager;
+namespace Plenta\ContaoEncryptionBundle\Tests\Unit\ContaoManager;
 
-use Brkwsky\ContaoEncryptionBundle\ContaoManager\Plugin;
-use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
+use Plenta\ContaoEncryptionBundle\ContaoManager\Plugin;
+use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;

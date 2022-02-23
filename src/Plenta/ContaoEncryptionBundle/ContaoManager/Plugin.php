@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\ContaoManager;
+namespace Plenta\ContaoEncryptionBundle\ContaoManager;
 
-use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
+use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;

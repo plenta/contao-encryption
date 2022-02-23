@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Classes;
+namespace Plenta\ContaoEncryptionBundle\Classes;
 
 use phpseclib\Crypt\Blowfish;
 

@@ -1,4 +1,4 @@
-![](https://github.com/Brkwsky/contao-encryption/workflows/PHP%20Unit%20and%20Security%20Check/badge.svg)
+![](https://github.com/Plenta/contao-encryption/workflows/PHP%20Unit%20and%20Security%20Check/badge.svg)
 
 # Contao Encryption
 
@@ -62,10 +62,10 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
         'feGroup' => 'bank'
     ],
     'load_callback' => [
-        ['brkwsky.encryption', 'decrypt']
+        ['plenta.encryption', 'decrypt']
     ],
     'save_callback' => [
-        ['brkwsky.encryption', 'encrypt']
+        ['plenta.encryption', 'encrypt']
     ],
     'sql' => "varchar(32) NOT NULL default ''"
 ];
@@ -74,7 +74,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['bank_iban'] = [
 ## Example > Url parameter
 
 ```php
-$encryptionService = \Contao\System::getContainer()->get('brkwsky.encryption');
+$encryptionService = \Contao\System::getContainer()->get('plenta.encryption');
 $urlParameter = $encryptionService->encryptUrlSafe('value');
 
 $urlGetParameter = \Contao\Input::get('parameter');

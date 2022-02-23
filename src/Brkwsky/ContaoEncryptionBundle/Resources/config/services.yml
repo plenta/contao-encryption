@@ -1,7 +1,0 @@
-services:
-    brkwsky.encryption:
-        public: true
-        class: Brkwsky\ContaoEncryptionBundle\Classes\Encryption
-        arguments: ["%plenta_contao_encryption.encryption_key%"]
-
-    Brkwsky\ContaoEncryptionBundle\Classes\Encryption: "@brkwsky.encryption"

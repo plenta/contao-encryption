@@ -1,0 +1,14 @@
+services:
+    plenta.encryption:
+        class: Plenta\ContaoEncryptionBundle\Classes\Encryption
+        public: true
+        arguments: ["%plenta_contao_encryption.encryption_key%"]
+
+    brkwsky.encryption:
+        alias: plenta.encryption
+        public: true
+        deprecated: 'The "%alias_id%" service alias is deprecated. Please use "plenta.encryption" instead.'
+
+    Plenta\ContaoEncryptionBundle\Classes\Encryption:
+        alias: plenta.encryption
+        public: true

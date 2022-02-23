@@ -10,10 +10,10 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\DependencyInjection;
+namespace Plenta\ContaoEncryptionBundle\Tests\Unit\DependencyInjection;
 
-use Brkwsky\ContaoEncryptionBundle\Classes\Encryption;
-use Brkwsky\ContaoEncryptionBundle\DependencyInjection\PlentaContaoEncryptionExtension;
+use Plenta\ContaoEncryptionBundle\Classes\Encryption;
+use Plenta\ContaoEncryptionBundle\DependencyInjection\PlentaContaoEncryptionExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
@@ -35,8 +35,16 @@ class PlentaContaoEncryptionExtensionTest extends TestCase
 
     public function testEncryption(): void
     {
+        $this->assertTrue($this->container->has('Plenta\ContaoEncryptionBundle\Classes\Encryption'));
+        $definition = $this->container->getAlias('Plenta\ContaoEncryptionBundle\Classes\Encryption');
+        $this->assertTrue($definition->isPublic());
+
         $this->assertTrue($this->container->has('brkwsky.encryption'));
-        $definition = $this->container->getDefinition('brkwsky.encryption');
+        $definition = $this->container->getAlias('brkwsky.encryption');
+        $this->assertTrue($definition->isPublic());
+
+        $this->assertTrue($this->container->has('plenta.encryption'));
+        $definition = $this->container->getDefinition('plenta.encryption');
         $this->assertSame(Encryption::class, $definition->getClass());
         $this->assertTrue($definition->isPublic());
     }

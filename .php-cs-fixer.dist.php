@@ -6,8 +6,8 @@ $header = <<<EOF
 Encryption extension for Contao Open Source CMS
 
 @copyright     Copyright (c) $date, Christian Barkowsky & Christoph Werner
-@author        Christian Barkowsky <https://brkwsky.de/>
-@author        Christoph Werner <https://brkwsky.de/>
+@author        Christian Barkowsky <https://plenta.io/>
+@author        Christoph Werner <https://plenta.io/>
 EOF;
 
 $finder = PhpCsFixer\Finder::create()

@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle;
+namespace Plenta\ContaoEncryptionBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

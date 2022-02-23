@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @author        Christoph Werner <https://brkwsky.de/>
  */
 
-namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\Classes;
+namespace Plenta\ContaoEncryptionBundle\Tests\Unit\Classes;
 
-use Brkwsky\ContaoEncryptionBundle\Classes\Encryption;
+use Plenta\ContaoEncryptionBundle\Classes\Encryption;
 use Contao\TestCase\ContaoTestCase;
 
 class EncryptionTest extends ContaoTestCase
