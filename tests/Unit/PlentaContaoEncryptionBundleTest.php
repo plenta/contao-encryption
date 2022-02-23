@@ -12,14 +12,14 @@ declare(strict_types=1);
 
 namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit;
 
-use Brkwsky\ContaoEncryptionBundle\ContaoEncryptionBundle;
+use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use PHPUnit\Framework\TestCase;
 
-class ContaoEncryptionBundleTest extends TestCase
+class PlentaContaoEncryptionBundleTest extends TestCase
 {
     public function testCanBeInstantiated(): void
     {
-        $bundle = new ContaoEncryptionBundle();
-        $this->assertInstanceOf('Brkwsky\ContaoEncryptionBundle\ContaoEncryptionBundle', $bundle);
+        $bundle = new PlentaContaoEncryptionBundle();
+        $this->assertInstanceOf('Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle', $bundle);
     }
 }

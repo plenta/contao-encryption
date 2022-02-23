@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('plenta_encryption');
+        $treeBuilder = new TreeBuilder('plenta_contao_encryption');
         $treeBuilder->getRootNode()
             ->children()
                 ->scalarNode('encryption_key')

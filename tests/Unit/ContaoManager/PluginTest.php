@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\ContaoManager;
 
-use Brkwsky\ContaoEncryptionBundle\ContaoEncryptionBundle;
 use Brkwsky\ContaoEncryptionBundle\ContaoManager\Plugin;
+use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
@@ -29,7 +29,7 @@ class PluginTest extends TestCase
         $config = (new Plugin())->getBundles($parser)[0];
 
         $this->assertInstanceOf(BundleConfig::class, $config);
-        $this->assertSame(ContaoEncryptionBundle::class, $config->getName());
+        $this->assertSame(PlentaContaoEncryptionBundle::class, $config->getName());
         $this->assertSame([ContaoCoreBundle::class], $config->getLoadAfter());
     }
 }

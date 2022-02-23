@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Brkwsky\ContaoEncryptionBundle\ContaoManager;
 
-use Brkwsky\ContaoEncryptionBundle\ContaoEncryptionBundle;
+use Brkwsky\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
@@ -26,7 +26,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(ContaoEncryptionBundle::class)
+            BundleConfig::create(PlentaContaoEncryptionBundle::class)
                 ->setLoadAfter([
                     ContaoCoreBundle::class,
                 ]),

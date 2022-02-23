@@ -14,6 +14,6 @@ namespace Brkwsky\ContaoEncryptionBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ContaoEncryptionBundle extends Bundle
+class PlentaContaoEncryptionBundle extends Bundle
 {
 }

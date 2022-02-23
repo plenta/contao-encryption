@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class ContaoEncryptionExtension extends Extension
+class PlentaContaoEncryptionExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -33,6 +33,6 @@ class ContaoEncryptionExtension extends Extension
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter('plenta_encryption.encryption_key', $config['encryption_key']);
+        $container->setParameter('plenta_contao_encryption.encryption_key', $config['encryption_key']);
     }
 }

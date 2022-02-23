@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Brkwsky\ContaoEncryptionBundle\Tests\Unit\DependencyInjection;
 
 use Brkwsky\ContaoEncryptionBundle\Classes\Encryption;
-use Brkwsky\ContaoEncryptionBundle\DependencyInjection\ContaoEncryptionExtension;
+use Brkwsky\ContaoEncryptionBundle\DependencyInjection\PlentaContaoEncryptionExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class ContaoEncryptionExtensionTest extends TestCase
+class PlentaContaoEncryptionExtensionTest extends TestCase
 {
     private ContainerBuilder $container;
 
@@ -29,7 +29,7 @@ class ContaoEncryptionExtensionTest extends TestCase
     {
         parent::setUp();
         $this->container = new ContainerBuilder(new ParameterBag(['kernel.debug' => false]));
-        $extension = new ContaoEncryptionExtension();
+        $extension = new PlentaContaoEncryptionExtension();
         $extension->load([], $this->container);
     }
 
