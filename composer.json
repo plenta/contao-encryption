@@ -3,6 +3,9 @@
     "description": "A replacement service for the removed Contao encryption class.",
     "type": "contao-bundle",
     "license": "MIT",
+    "replace": {
+        "brkwsky/contao-encryption": "self.version"
+    },
     "authors": [
         {
             "name": "Christian Barkowsky",
