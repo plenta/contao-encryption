@@ -2,7 +2,7 @@ services:
     plenta.encryption:
         class: Plenta\ContaoEncryptionBundle\Classes\Encryption
         public: true
-        arguments: ["%plenta_contao_encryption.encryption_key%"]
+        arguments: ["%plenta_contao_encryption.encryption_key%", "%plenta_contao_encryption.truncate_encryption_key%"]
 
     brkwsky.encryption:
         alias: plenta.encryption

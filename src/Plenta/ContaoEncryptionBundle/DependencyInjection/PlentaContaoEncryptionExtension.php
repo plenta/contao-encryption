@@ -34,5 +34,6 @@ class PlentaContaoEncryptionExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('plenta_contao_encryption.encryption_key', $config['encryption_key']);
+        $container->setParameter('plenta_contao_encryption.truncate_encryption_key', $config['truncate_encryption_key']);
     }
 }

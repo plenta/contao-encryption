@@ -26,6 +26,9 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->defaultValue('%kernel.secret%')
                 ->end()
+                ->scalarNode('truncate_encryption_key')
+                    ->defaultTrue()
+                ->end()
             ->end()
         ;
 

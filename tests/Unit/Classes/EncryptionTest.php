@@ -18,12 +18,15 @@ use Plenta\ContaoEncryptionBundle\Classes\Encryption;
 class EncryptionTest extends ContaoTestCase
 {
     private ?Encryption $objEncryption;
-    private string $encryptedValue = 'WlN8cEIMF6cQ3h6w1m59K3EBG+IIsf+H';
+    private ?Encryption $objEncryptionTruncated;
+    private string $encryptedValueTruncated = 'WlN8cEIMF6cQ3h6w1m59K3EBG+IIsf+H';
+    private string $encryptedValue = 'VcCJVLZvmDaSsrrA/GnRwraF7rJ2YbE2';
     private string $decryptedValue = 'Max Mustermann 51';
 
     protected function setUp(): void
     {
-        $this->objEncryption = new Encryption('a08cbe3e62053d9141c5bef71096de4fd71722f8e294bdb1fb428dd81f1d3657');
+        $this->objEncryption = new Encryption('a08cbe3e62053d9141c5bef71096de4fd71722f8e294bdb1fb428dd81f1d3657', false);
+        $this->objEncryptionTruncated = new Encryption('a08cbe3e62053d9141c5bef71096de4fd71722f8e294bdb1fb428dd81f1d3657', true);
 
         parent::setUp();
     }
@@ -31,11 +34,13 @@ class EncryptionTest extends ContaoTestCase
     public function testEncrypt(): void
     {
         $this->assertSame($this->encryptedValue, $this->objEncryption->encrypt($this->decryptedValue));
+        $this->assertSame($this->encryptedValueTruncated, $this->objEncryptionTruncated->encrypt($this->decryptedValue));
     }
 
     public function testDecrypt(): void
     {
         $this->assertSame($this->decryptedValue, $this->objEncryption->decrypt($this->encryptedValue));
+        $this->assertSame($this->decryptedValue, $this->objEncryptionTruncated->decrypt($this->encryptedValueTruncated));
     }
 
     public function testEncryptEmptyString(): void
@@ -53,5 +58,10 @@ class EncryptionTest extends ContaoTestCase
         $decrypted = $this->objEncryption->decryptUrlSafe($encrypted);
 
         $this->assertSame($decrypted, $this->decryptedValue);
+
+        $encryptedTruncated = $this->objEncryptionTruncated->encryptUrlSafe($this->decryptedValue);
+        $decryptedTruncated = $this->objEncryptionTruncated->decryptUrlSafe($encryptedTruncated);
+
+        $this->assertSame($decryptedTruncated, $this->decryptedValue);
     }
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Plenta\ContaoEncryptionBundle\Classes;
 
-use phpseclib\Crypt\Blowfish;
+use phpseclib3\Crypt\Blowfish;
 
 /**
  * Class Encryption.
@@ -21,12 +21,17 @@ class Encryption
 {
     private ?string $encryptionKey;
 
+    private string $iv = "\0\0\0\0\0\0\0\0";
+
     /**
      * Encryption constructor.
      */
-    public function __construct(string $secret)
+    public function __construct(string $secret, bool $truncateKey)
     {
         $this->encryptionKey = $secret;
+        if ($truncateKey) {
+            $this->encryptionKey = substr($this->encryptionKey, 0, 56);
+        }
     }
 
     /**
@@ -36,8 +41,9 @@ class Encryption
      */
     public function encrypt($value)
     {
-        $cipher = new Blowfish();
+        $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
+        $cipher->setIV($this->iv);
         $value = $cipher->encrypt($value);
 
         return base64_encode($value);
@@ -54,8 +60,9 @@ class Encryption
             return '';
         }
 
-        $cipher = new Blowfish();
+        $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
+        $cipher->setIV($this->iv);
         $value = base64_decode($value, true);
 
         return $cipher->decrypt($value);
@@ -63,8 +70,9 @@ class Encryption
 
     public function encryptUrlSafe($value): string
     {
-        $cipher = new Blowfish();
+        $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
+        $cipher->setIV($this->iv);
         $value = $cipher->encrypt($value);
         $valueBase64 = base64_encode($value);
 
@@ -78,8 +86,9 @@ class Encryption
      */
     public function decryptUrlSafe($value)
     {
-        $cipher = new Blowfish();
+        $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
+        $cipher->setIV($this->iv);
         $value = base64_decode(strtr($value, '-_', '+/').str_repeat('=', 3 - (3 + \strlen($value)) % 4), true);
 
         return $cipher->decrypt($value);
