@@ -7,7 +7,10 @@ services:
     brkwsky.encryption:
         alias: plenta.encryption
         public: true
-        deprecated: 'The "%alias_id%" service alias is deprecated. Please use "plenta.encryption" instead.'
+        deprecated:
+            message: 'The "%alias_id%" service alias is deprecated since plenta/contao-encryption 2.0.0. Please use "plenta.encryption" instead.'
+            package: 'plenta/contao-encryption'
+            version: '2.0.0'
 
     Plenta\ContaoEncryptionBundle\Classes\Encryption:
         alias: plenta.encryption
