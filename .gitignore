@@ -17,3 +17,4 @@ Thumbs.db
 nbproject/
 var/
 /.phpunit.result.cache
+composer.lock
