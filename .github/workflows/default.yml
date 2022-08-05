@@ -7,17 +7,20 @@ on:
 
 jobs:
     build:
-
-        runs-on: ubuntu-latest
-
+        runs-on: ${{ matrix.operating-system }}
+        strategy:
+            matrix:
+                operating-system: [ ubuntu-latest, windows-latest, macOS-latest ]
+                php-versions: [ '7.4', '8.0', '8.1' ]
+        name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v1
+              uses: actions/checkout@v2
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: '7.4'
+                php-version: ${{ matrix.php-versions }}
                 extensions: mysqli, pdo_mysql, pcntl, bcmath, zip, soap, intl, gd, exif, xdebug
                 ini-values: short_open_tag=off
                 coverage: xdebug
