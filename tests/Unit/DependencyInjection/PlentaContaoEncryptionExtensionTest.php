@@ -42,6 +42,16 @@ class PlentaContaoEncryptionExtensionTest extends TestCase
         $this->assertTrue($this->container->has('brkwsky.encryption'));
         $definition = $this->container->getAlias('brkwsky.encryption');
         $this->assertTrue($definition->isPublic());
+        $this->assertTrue($definition->isDeprecated());
+        $deprecation = $definition->getDeprecation('brkwsky.encryption');
+        $this->assertSame(
+            [
+                'package' => 'plenta/contao-encryption',
+                'version' => '2.0.0',
+                'message' => 'The "brkwsky.encryption" service alias is deprecated since plenta/contao-encryption 2.0.0. Please use "plenta.encryption" instead.',
+            ],
+            $deprecation,
+        );
 
         $this->assertTrue($this->container->has('plenta.encryption'));
         $definition = $this->container->getDefinition('plenta.encryption');
