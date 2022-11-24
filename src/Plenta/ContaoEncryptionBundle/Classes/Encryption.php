@@ -41,6 +41,10 @@ class Encryption
      */
     public function encrypt($value)
     {
+        if ('' === $value) {
+            return '';
+        }
+
         $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
         $cipher->setIV($this->iv);
@@ -70,6 +74,10 @@ class Encryption
 
     public function encryptUrlSafe($value): string
     {
+        if ('' === $value) {
+            return '';
+        }
+
         $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
         $cipher->setIV($this->iv);
@@ -86,6 +94,10 @@ class Encryption
      */
     public function decryptUrlSafe($value)
     {
+        if ('' === $value) {
+            return '';
+        }
+
         $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
         $cipher->setIV($this->iv);
