@@ -15,12 +15,14 @@ namespace Plenta\ContaoEncryptionBundle\Tests\Unit\ContaoManager;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 use Plenta\ContaoEncryptionBundle\ContaoManager\Plugin;
 use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 
 class PluginTest extends TestCase
 {
+    #[AllowMockObjectsWithoutExpectations]
     public function testReturnsTheBundles(): void
     {
         $parser = $this->createMock(ParserInterface::class);
