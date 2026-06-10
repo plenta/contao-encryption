@@ -3,7 +3,7 @@ name: PHP Unit and Security Check
 on:
     push:
         branches:
-            - master
+            - main
 
 jobs:
     build:
