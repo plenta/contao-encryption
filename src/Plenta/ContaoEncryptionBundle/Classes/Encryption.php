@@ -19,31 +19,27 @@ use phpseclib3\Crypt\Blowfish;
  */
 class Encryption
 {
-    private ?string $encryptionKey;
-
     private string $iv = "\0\0\0\0\0\0\0\0";
 
     /**
      * Encryption constructor.
      */
-    public function __construct(string $secret, bool $truncateKey)
-    {
-        $this->encryptionKey = $secret;
+    public function __construct(
+        private string|null $encryptionKey,
+        bool $truncateKey,
+    ) {
         if ($truncateKey) {
-            $this->encryptionKey = substr($this->encryptionKey, 0, 56);
+            $this->encryptionKey = substr((string) $this->encryptionKey, 0, 56);
         }
     }
 
-    /**
-     * @param $value
-     *
-     * @return mixed
-     */
-    public function encrypt($value)
+    public function encrypt(int|string $value): string
     {
         if ('' === $value) {
             return '';
         }
+
+        $value = (string) $value;
 
         $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
@@ -53,12 +49,7 @@ class Encryption
         return base64_encode($value);
     }
 
-    /**
-     * @param $value
-     *
-     * @return mixed
-     */
-    public function decrypt($value)
+    public function decrypt(string $value): string
     {
         if ('' === $value) {
             return '';
@@ -72,11 +63,13 @@ class Encryption
         return $cipher->decrypt($value);
     }
 
-    public function encryptUrlSafe($value): string
+    public function encryptUrlSafe(int|string $value): string
     {
         if ('' === $value) {
             return '';
         }
+
+        $value = (string) $value;
 
         $cipher = new Blowfish('cbc');
         $cipher->setKey($this->encryptionKey);
@@ -87,12 +80,7 @@ class Encryption
         return rtrim(strtr($valueBase64, '+/', '-_'), '=');
     }
 
-    /**
-     * @param $value
-     *
-     * @return mixed
-     */
-    public function decryptUrlSafe($value)
+    public function decryptUrlSafe(string $value): string
     {
         if ('' === $value) {
             return '';

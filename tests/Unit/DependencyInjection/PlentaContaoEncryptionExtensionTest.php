@@ -18,13 +18,10 @@ use Plenta\ContaoEncryptionBundle\DependencyInjection\PlentaContaoEncryptionExte
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class PlentaContaoEncryptionExtensionTest extends TestCase
+final class PlentaContaoEncryptionExtensionTest extends TestCase
 {
     private ContainerBuilder $container;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -35,8 +32,8 @@ class PlentaContaoEncryptionExtensionTest extends TestCase
 
     public function testEncryption(): void
     {
-        $this->assertTrue($this->container->has('Plenta\ContaoEncryptionBundle\Classes\Encryption'));
-        $definition = $this->container->getAlias('Plenta\ContaoEncryptionBundle\Classes\Encryption');
+        $this->assertTrue($this->container->has(Encryption::class));
+        $definition = $this->container->getAlias(Encryption::class);
         $this->assertTrue($definition->isPublic());
 
         $this->assertTrue($this->container->has('brkwsky.encryption'));

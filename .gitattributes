@@ -6,3 +6,4 @@
 /docs export-ignore
 /.php_cs.dist export-ignore
 /composer.lock export-ignore
+.phpunit.cache export-ignore

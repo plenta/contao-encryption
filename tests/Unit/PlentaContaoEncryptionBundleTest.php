@@ -15,11 +15,14 @@ namespace Plenta\ContaoEncryptionBundle\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 
-class PlentaContaoEncryptionBundleTest extends TestCase
+final class PlentaContaoEncryptionBundleTest extends TestCase
 {
     public function testCanBeInstantiated(): void
     {
         $bundle = new PlentaContaoEncryptionBundle();
-        $this->assertInstanceOf('Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle', $bundle);
+        $this->assertSame(
+            'PlentaContaoEncryptionBundle',
+            (new \ReflectionClass($bundle))->getShortName(),
+        );
     }
 }

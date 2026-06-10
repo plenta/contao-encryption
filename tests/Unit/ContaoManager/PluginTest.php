@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 use Plenta\ContaoEncryptionBundle\ContaoManager\Plugin;
 use Plenta\ContaoEncryptionBundle\PlentaContaoEncryptionBundle;
 
-class PluginTest extends TestCase
+final class PluginTest extends TestCase
 {
     #[AllowMockObjectsWithoutExpectations]
     public function testReturnsTheBundles(): void
